@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0825c43c-8c17-46c7-bb77-754ae75e5987" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/property_management /views/job_type_demo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property_management /models/maintence.py" beforeDir="false" afterPath="$PROJECT_DIR$/property_management /models/maintence.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
