@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="hospital_menu"
+              name="Hospital"/>
+
+    <menuitem id="hospital_menu_sub"
+              name="Patient"
+              parent="hospital_menu"
+              action="base.action_partner_supplier_form"
+              sequence="8"/>
+
+        <record id="patient_view_tree" model="ir.ui.view">
+            <field name="name">Patient Tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+
+                    <xpath expr="//tree/field[@name='display_name']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//tree/field[@name='email']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//tree/field[@name='phone']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                <tree>
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="dob"/>
+                    <field name="age"/>
+                    <field name="height"/>
+                    <field name="weight"/>
+                    <field name="address"/>
+                    <field name="mobile"/>
+                    <field name="disease"/>
+                    <field name="laboratry_id" optional="hide"/>
+                    <field name="medicine_id" optional="hide"/>
+                </tree>
+
+            </field>
+        </record>
+
+        <record id="patient_view_form" model="ir.ui.view">
+            <field name="name">Patient Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='vat']" position="before">
+                    <field name="dob"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+
+                </xpath>
+
+
+                <xpath expr="//group/field[@name='category_id']" position="replace">
+                    <field name="height"/>
+                    <field name="weight"/>
+                    <field name="disease"/>
+                    <field name="doctor_id" widget="many2many_tags"/>
+                    <field name="laboratry_id" widget="many2many_tags"/>
+                    <field name="medicine_id" widget="many2many_tags"/>
+                </xpath>
+
+                 <xpath expr="//div[hasclass('o_row')]/field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                 </xpath>
+
+                 <xpath expr="//group/group/field[@name='type']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                 </xpath>
+
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group/field[@name='function']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                 <xpath expr="//group/field[@name='website']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                 </xpath>
+
+                <xpath expr="//div[hasclass('oe_title')]/field[@name='company_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group/group/label[@name='address_name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_address_format')]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_address_format')]" position="before">
+                    <field name="address"/>
+                </xpath>
+
+                <xpath expr="//group/field[@name='email']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                 </xpath>
+
+                <xpath expr="//group/field[@name='phone']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                 </xpath>
+
+            </field>
+        </record>
+
+        <record id="base.action_partner_supplier_form" model="ir.actions.act_window">
+            <field name="name">Patient</field>
+        </record>
+
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="patient_in_view_form" model="ir.ui.view">
+            <field name="name">Patient_In Form</field>
+            <field name="model">patient.in</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="admission"/>
+                            <field name="room_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="patient_in_view_tree" model="ir.ui.view">
+            <field name="name">Patient_In Tree</field>
+            <field name="model">patient.in</field>
+            <field name="arch" type="xml">
+                    <tree>
+                     <field name="partner_id"/>
+                        <field name="admission"/>
+                        <field name="room_id"/>
+                    </tree>
+            </field>
+        </record>
+
+     <record id="patient_in_action" model="ir.actions.act_window">
+        <field name="name">Admit</field>
+        <field name="res_model">patient.in</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="patient_in_menu_sub"
+              name="Admit"
+              parent="hospital_menu"
+              action="patient_in_action"
+              sequence="8"/>
+
+
+</odoo>
