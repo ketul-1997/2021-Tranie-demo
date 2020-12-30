@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_company_registraion,access_company_registraion,model_company_registraion,base.group_user,1,1,1,1
+access_job_post,access_job_post,model_job_post,base.group_user,1,1,1,1
+access_employee_information,access_employee_information,model_employee_information,base.group_user,1,1,1,1
+access_job_stage,access_job_stage,model_job_stage,base.group_user,1,1,1,1
+
+
+

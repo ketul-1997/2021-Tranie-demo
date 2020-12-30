@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >
+    <record model="ir.module.category" id="job_management">
+             <field name="name">Job Management</field>
+        </record>
+        <record id="job_management_group" model="res.groups">
+            <field name="name">CEO or Management</field>
+            <field name="category_id" ref="job_management"/>
+        </record>    
+         
+         <record id="job_management_recruter_group" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="job_management"/>
+            <field name="implied_ids" eval="[(4, ref('job_management.job_management_group'))]"/>
+        </record>
+         
+    
+    </data>
+</odoo>

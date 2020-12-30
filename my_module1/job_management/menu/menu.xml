@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record id="jobpost_menu_page" model="website.menu">
+        <field name="name">Job post</field>
+        <field name="parent_id" ref="website.main_menu"/>
+  
+        <field name="url">/jobpost</field>
+
+        <!-- Provide  template id that you want to render --> 
+    </record>
+
+
+
+
+
+  <!-- main menu -->
+    <menuitem id= "company_job_view_menu" name="Job management" />
+    <!-- company Registration -->
+    <menuitem id= "company_view_menu_sub" parent="company_job_view_menu" name="Company Registration" action="action_company_registration"/>
+    
+    <!-- job post menu -->
+    <menuitem id= "job_post_company_view_menu_sub" parent="company_job_view_menu" name="Post job" action="action_job_post"/>
+
+    <menuitem id= "job_post_employee_view_menu_sub" parent="company_job_view_menu" name="Employee Information" action="action_employee_information"/>
+            
+    <!-- <menuitem id= "job_post_employee_kanban_view_menu_sub" parent="company_job_view_menu" name="Employee kanban" action="action_employee_information_kanban"/> -->
+    
+    
+</data>
+</odoo>

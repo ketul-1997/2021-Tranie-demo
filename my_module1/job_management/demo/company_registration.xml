@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <data > -->
+    <record id="company_registration_info" model="company.registraion">
+            <field name="name">Company Name</field>
+            <field name="c_mobile">Ex; 972*****54</field>
+            <field name="pin_code">Ex:382252</field>
+            <field name="email">xyz@gmail.com</field>
+            <field name="address">Ex:Dholka,Ahemdabad</field>
+           
+            <!-- <field name="buil_ids" ref='office_info'/> -->
+
+    </record>
+   
+    <!-- </data> -->
+    
+</odoo>

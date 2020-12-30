@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    <record id="job_post_info" model="job.post">
+            <field name="c_name" ref="company_registration_info"></field>
+            <field name="c_mobile">Ex; 972*****54</field>
+            <field name="pin_code">Ex:382252</field>
+            <field name="email">xyz@gmail.com</field>
+            <field name="address">Ex:Dholka,Ahemdabad</field>
+            <field name="job_info">job name</field>
+            <!-- <field name="job_type">Full time - Part time</field> -->
+            <!-- <field name="end_date">12-1-2021</field> -->
+           <field name="no_of_postion">12</field>
+           <field name="job_description">description</field>
+           <field name="salary">12000</field>
+            <!-- <field name="buil_ids" ref='office_info'/> -->
+
+    </record>
+   
+    </data>
+    
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="report_user"
+    name="job_management.report_employee_information_tamplate"
+    model="employee.information"
+    
+    string="Employee Information"
+    report_type="qweb-pdf"/>
+</odoo>

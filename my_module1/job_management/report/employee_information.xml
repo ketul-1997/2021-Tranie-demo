@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_employee_information_tamplate">
+        <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="data">
+        <h><t t-esc="data" /></h>
+        <t t-call="web.external_layout">
+        <div class="page">
+            <h1>Employee Information </h1>
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mobile_no</th>
+                <th>Email</th>
+                <th>Date_of_birth</th>
+                <th>Company Name</th>
+            </tr>
+            </thead>
+        <tbody>
+        <t t-foreach="data" t-as="doc">
+            <tr>
+                <td><t t-esc="doc.name" /></td>
+                <td><t t-esc="doc.mobile_no" /></td>
+                <td><t t-esc="doc.email" /></td>
+                <td><t t-esc="doc.date_of_birth" /></td>
+                <td><t t-esc="doc.company_name" /></td>
+                
+            
+            </tr>
+        </t>
+        </tbody>
+        </table>
+        </div>
+        
+        </t>
+        </t>
+        </t>
+    </template>
+</odoo>
