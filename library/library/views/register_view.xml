@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+
+        <template id="register_page_template" name="Register page">
+                <t t-call="website.layout">
+                <div>
+                    <form  action="/customer" >
+                        <div class="form-group">
+                            <label for="myname">Name:</label>
+                            <select name="myname" id="myname">
+                            <t t-foreach="read" t-as="permit">
+                                <option t-att-value="permit.id">
+                                    <t t-esc="permit.name"/>
+                                </option>
+                            </t>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Book Name:</label>
+                            <select name="bookname" id="bookname">
+                                <t t-foreach="details" t-as="permit">
+                                    <option t-att-value="permit.id">
+                                        <t t-esc="permit.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                            <!-- <input type="text" class="form-control" name="name" id="name" required="true" /> -->
+                        </div>
+                <!-- <div class="form-group">
+                    <label for="name">ISBN Number:</label>
+                    <input type="text" class="form-control" name="isbn_no" id="isbn_no" required="true" />
+                </div>
+                <div class="form-group">
+                    <label for="requestissue">Issue Request Date:</label>
+                    <input type="date" id="requestissue" name="requestissue" />
+                </div>   -->
+                <button type="submit" class="btn btn-primary">Register</button>
+            
+            </form>
+        </div> 
+
+        </t>
+        </template>
+
+
+
+    <template id="request_form_success" name="Request Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            Request successfully Submitted...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+        </template>
+
+    <template id="status_show" name="status">
+        <t t-call="website.layout">
+        <form action="/check/mystatus/submit">
+            
+                    <label for="name">Name:</label>
+                    <select name="myname" id="myname">
+                    <t t-foreach="details" t-as="permit">
+                        <option t-att-value="permit.id">
+                            <t t-esc="permit.name"/>
+                        </option>
+                    </t>
+                    </select>
+                    <!-- <input type="text" class="form-control" name="myname" id="myname" required="true" /> -->
+                    <button type="submit" class="btn btn-primary">Check</button>
+                
+            
+        </form>
+        </t>
+        </template>
+
+        <template id="detail_page_template1" name="Detail page">
+        <t t-call="website.layout">
+         
+            
+            <table border="1" class="table table-condensed table-bordered ">
+                        <tr style="background-color:#A9E2F3;">
+                            
+                            <th class="text-center">Book Name</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Issue Date</th>
+                            <th class="text-center">Expected Return Date</th>
+                            
+                        </tr>
+                        <t t-foreach="details4" t-as="doc">
+                        <tr>
+                            
+                            <td class="text-center"><t t-esc="doc.name"/></td>
+                            <td class="text-center"><t t-esc="doc.state"/></td>
+                            <td class="text-center"><t t-esc="doc.issue_date"/></td>
+                            <td class="text-center"><t t-esc="doc.return_date"/></td>
+                        </tr>
+                        </t>    
+            </table>
+            
+        </t>
+        </template>
+
+
+    </data>
+</odoo>

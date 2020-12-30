@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+
+    <template id="request_form_success11" name="status">
+        <t t-call="website.layout">
+            <form action="/reader/form" style="border:1px solid #ccc">
+                <div class="container">
+                    <h1>Sign Up</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name" name="name" /><br>
+                    <label for="phone_no"><b>Phone Number</b></label>
+                    <input type="text" placeholder="Phone Number" name="phone_no" /></br><br>
+                    <label for="address"><b>Address</b></label>
+                    <input type="text" placeholder="Enter Address" name="address" /></br>
+
+                    
+
+
+                    
+                    <div class="clearfix">
+                    
+                    <button type="submit" class="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </t>
+    </template>
+
+
+
+
+    </data>
+</odoo>

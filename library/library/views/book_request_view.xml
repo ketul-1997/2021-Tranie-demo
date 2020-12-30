@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate='1' >
+    
+    
+
+    
+
+    <record id="action_bookrequest" model="ir.actions.act_window">
+            <field name="name">bookrequest</field>
+            <field name="res_model">bookrequest</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    
+    
+
+
+
+    <record id="bookrequest_view_form" model="ir.ui.view">
+        <field name="name">bookrequest</field>
+        <field name="model">bookrequest</field>
+        <field name="arch" type="xml">
+            <form >
+                <header>
+                    <button name="%(bookrequest_wizard_action)d" string="CheckBookInLibrary" type="action" class="oe_highlight"/>
+                    <button name="action_pending" string="Pending" type="object" attrs="{'invisible': [('state','=','pending')]}" class="oe_highlight"/>
+                    <button name="action_done" string="Confirm" type="object" attrs="{'invisible': [('state','=','confirm')]}" class="oe_highlight"/>
+                    <button name="action_cancel" string="Cancel" type="object" attrs="{'invisible': [('state','=','cancel')]}" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group> 
+                        <field name="request_id" />
+                        <field name="name"/>
+                        <field name="author"/>
+                        <field name="edition"/>
+                        <field name="publisher"/>
+                        <field name="requestby"/>
+                        
+                        <field name="my_date" />
+                        <field name="issue_date"/>
+                        <field name="return_date"/>
+                    </group>
+                    <group>
+                        <button name ="action_issue" type="object" string="Issue Book" class="oe_highlight"></button>
+                    </group>
+                </sheet>
+               
+                     
+                
+            </form>
+        </field>
+    </record>
+
+    
+
+
+    
+
+    <record id="bookrequest_view_tree" model="ir.ui.view">
+        <field name="name">bookrequest</field>
+        <field name="model">bookrequest</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="request_id" />
+                <field name="name"/>
+                <field name="author"/>
+                <field name="edition"/>
+                <field name="publisher"/>
+                <field name="requestby"/>
+                <field name="state" />
+                <field name="my_date" />
+                <field name="issue_date"/>
+                <field name="return_date"/>
+
+            </tree>
+        </field>
+    </record>
+
+    
+    </data>
+</odoo>

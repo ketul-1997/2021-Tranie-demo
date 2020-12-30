@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<data >
+        <record model="ir.module.category" id="library_management">
+             <field name="name">Library</field>
+        </record>
+
+        <record id="library_reader" model="res.groups">
+            <field name="name">Reader</field>
+            <field name="category_id" ref="library_management"/>
+            
+        </record>
+        <record id="library_librarian" model="res.groups">
+            <field name="name">Librarian</field>
+            <field name="category_id" ref="library_management"/>
+            <field name="implied_ids" eval="[(4, ref('library.library_reader'))]"/>
+
+        </record>
+
+
+        <record id="visibility_user" model="ir.rule">   
+            <field name="name">Reader can only see his/her data</field>   
+            <field name="model_id" ref="model_reader"/>   
+            <field name="groups" eval="[(4, ref('library_reader'))]"/>   
+            <field name="perm_read" eval="True"/>   
+            <field name="perm_write" eval="True"/>   
+            <field name="perm_create" eval="False"/>   
+            <field name="perm_unlink" eval="False"/>   
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+        
+        <!-- <record id="overtime_builder" model="res.groups">
+            <field name="name">Builder</field>
+            <field name="category_id" ref="building_management"/>
+            <field name="implied_ids" eval="[(4, ref('myhospital.overtime_broker'))]"/>
+        </record>
+
+
+        <record id="receptionist_user" model="ir.rule">   
+             <field name="name">User is Receptionist</field>
+             <field name="model_id" ref="myhospital.model_agreement"></field>
+             <field name="groups" eval="[(4,ref('myhospital.overtime_receptionist'))]"></field>
+             <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+             
+        </record>
+ -->
+
+         <!-- <record id="res_partner_rule" model="ir.rule">   
+             <field name="name">User</field>
+             <field name="model_id" ref="library.model_reader"></field>
+             <field name="groups" eval="[(4,ref('library.library_management'))]"></field>
+             <field name="domain_force">[(1,'=',1)]</field>
+             
+        </record>
+ -->
+
+
+</data>
+</odoo>

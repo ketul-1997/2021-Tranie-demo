@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mybook,access_mybook,model_mybook,base.group_user,1,1,1,1
+access_category,access_category,model_category,base.group_user,1,1,1,1
+access_stock,access_stock,model_stock,base.group_user,1,1,1,1
+access_reader,access_reader,model_reader,base.group_user,1,1,1,1
+access_bookrequest,access_bookrequest,model_bookrequest,base.group_user,1,1,1,1

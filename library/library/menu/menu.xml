@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+       
+        <menuitem id="library_root_menu" name="Library" />
+        <menuitem id="book_menu" name="Book" parent="library_root_menu" action="action_rep_data" /> 
+        <menuitem id="reader_menu" name="Reader" parent="library_root_menu" action="action_reader"  />
+        <menuitem id="stock_menu" name="Stock" parent="library_root_menu" action="action_stock"  />
+        <menuitem id="category_menu" name="Category" parent="library_root_menu" action="action_category"  />
+        <menuitem id="bookrequest_menu" name="Book Request" parent="library_root_menu" action="action_bookrequest"  />
+
+        <record id="reader_register_menu" model="website.menu">
+            <field name="name">Library</field>
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="url">/library</field>
+            <field name="sequence" type="int">75</field>
+        </record>
+        
+        <record id="register_menu" model="website.menu">
+            <field name="name">Register</field>
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="url">/register</field>
+            <field name="sequence" type="int">85</field>
+        </record>
+
+        <record id="status_menu" model="website.menu">
+            <field name="name">Status</field>
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="url">/status</field>
+            <field name="sequence" type="int">85</field>
+        </record>
+
+    </data>
+</odoo>
