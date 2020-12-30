@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+       <record id="hospital_patient_menu" model="website.menu">
+           <field name="name">Patient</field> <!-- Name of the menu-->
+           <field name="url">/patient</field>
+           <field name="parent_id" ref="website.main_menu"/>
+           <field name="sequence" type="int">2</field>
+       </record>
+
+       <record id="hospital_appoint_menu" model="website.menu">
+           <field name="name">Book Appointment</field> <!-- Name of the menu-->
+           <field name="url">/appointment</field>
+           <field name="parent_id" ref="website.main_menu"/>
+           <field name="sequence" type="int">3</field>
+       </record>
+
+         <record id="hospital_room_menu" model="website.menu">
+           <field name="name">Room</field> <!-- Name of the menu-->
+           <field name="url">/room/selection</field>
+           <field name="parent_id" ref="website.main_menu"/>
+           <field name="sequence" type="int">6</field>
+       </record>
+
+   </data>
+</odoo>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <template id="template_appointment" name="Appointment Page">
+            <t t-call="website.layout">
+                <br/>
+                <center><h1><b>Appointment Booking</b></h1>
+                    <div>
+                        <p><h3>Welcome to Apollo Hospital.</h3></p>
+                        <p>Please provide the following deatils and book an appointmnet with one of our
+                        specialist.</p>
+                    </div></center>
+                <br></br>
+                <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <form action="/appointment/form/submit" style="margin-left:400px">
+                            <div class="form-group">
+                                <label for="name">Book Date</label>
+                                <input type="date" class="form-control" name="date" id="date" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="patient" id="patient" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Age</label>
+                                <input type="text" class="form-control" name="age" id="age" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">DOB</label>
+                                <input type="date" class="form-control" name="dob" id="dob" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Gender</label>
+                                 <select class="form-control" name="gender" style="width:250px">
+                                     <option></option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Height</label>
+                                <input type="text" class="form-control" name="height" id="height" required="true" style="width:250px;"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Weight</label>
+                                <input type="text" class="form-control" name="weight" id="weight" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Address</label>
+                                <input type="text" class="form-control" name="address" id="address" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Mobile</label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" required="true" style="width:250px"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Problem Description</label>
+                                <input type="text" class="form-control" name="problem" id="problem" required="true" style="width:250px"/>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Book</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+            <br/>
+                <br/>
+            </t>
+
+       </template>
+
+
+    <template id="booking_successful" name="appointment_booking">
+        <t t-call="website.layout">
+            <div class="oe_highlight">
+                <h1>Appointmnet Booked</h1>
+            </div>
+        </t>
+    </template>
+
+    <template id="template_patient" name="Patient">
+         <t t-call="website.layout">
+            <div class="oe_highlight">
+                <center><form action="/patient/details" style="margin-top: 125px;">
+                      <select name="patient" class="form-control" style="width:250px">
+                          <t t-foreach="patient" t-as="patients">
+                              <option t-att-value="patients.id">
+                                  <t t-esc="patients.name"/>
+                              </option>
+                          </t>
+                      </select>
+                    <button type="submit" class="btn btn-primary" name="submit">Get Details</button>
+                </form></center>
+            </div>
+        </t>
+    </template>
+
+    <template id="patient_details" name="patient_detailed">
+        <t t-call="website.layout">
+                        <h1><b>Patient Details</b></h1>
+                <div>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>DOB</th>
+                                    <th>Gender</th>
+                                    <th>Height</th>
+                                    <th>Weight</th>
+                                    <th>Problem</th>
+                                    <th>Mobile No.</th>
+                                    <th>Address</th>
+                                    <th>Assigned Doctor</th>
+                                    <th>Prescribed Medicines</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="patients" t-as="patient" >
+                                    <td><t t-esc="patient.name" /></td>
+                                    <td><t t-esc="patient.age" /></td>
+                                    <td><t t-esc="patient.dob" /></td>
+                                    <td><t t-esc="patient.gender"/></td>
+                                    <td><t t-esc="patient.height"/></td>
+                                    <td><t t-esc="patient.weight"/></td>
+                                    <td><t t-esc="patient.disease"/></td>
+                                    <td><t t-esc="patient.mobile"/> </td>
+                                    <td><t t-esc="patient.address"/> </td>
+                                    <td><t t-esc="patient.doctor_id.name"/> </td>
+                                    <t t-foreach="patient.medicine_id" t-as="pat">
+                                        <td><t t-esc="pat.name"/></td>
+                                    </t>
+                                </tr>
+                            </tbody>
+                        </table>
+                  <a t-attf-href="/patient/edit/{{ slug(patients) }}" class="btn btn-primary">edit</a>
+                </div>
+        </t>
+
+    </template>
+
+
+    <template id="edit_patient" name="patient_edit">
+        <t t-call="website.layout">
+            <form action="/patient/edit/submit">
+                  <div class="form-group">
+                      <label for="name">Name</label>
+                      <t t-foreach="patient" t-as="patients">
+                      <input type="text" class="form-control" t-attf-value="#{patients.name}" name="name" id="name" readonly="true"/>
+                      </t>
+                  </div>
+                 <div class="form-group">
+                      <label for="name">Height</label>
+                      <t t-foreach="patient" t-as="patients">
+                      <input type="text" class="form-control" t-attf-value="#{patients.height}" name="height" id="height" required="true"/>
+                      </t>
+                 </div>
+                 <div class="form-group">
+                      <label for="name">Weight</label>
+                      <t t-foreach="patient" t-as="patients">
+                      <input type="text" class="form-control" t-attf-value="#{patients.weight}" name="weight" id="weight" required="true"/>
+                      </t>
+                 </div>
+                 <div class="form-group">
+                      <label for="name">Mobile</label>
+                      <t t-foreach="patient" t-as="patients">
+                      <input type="text" class="form-control" t-attf-value="#{patients.mobile}" name="mobile" id="mobile" required="true"/>
+                      </t>
+                 </div>
+                 <div class="form-group">
+                      <label for="name">Address</label>
+                      <t t-foreach="patient" t-as="patients">
+                      <input type="text" class="form-control" t-attf-value="#{patients.address}" name="address" id="address" required="true"/>
+                      </t>
+                 </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </t>
+    </template>
+
+
+    <template id="admit_room_template" name="Assign Room">
+        <t t-call="website.layout">
+            <center><h1>Assign Room</h1>
+            <form action="/room/appointed">
+                <br/>
+                <div class="form-group">
+                    <label for="name">Patient Name</label>
+                     <select name="patient" class="form-control" style="width:250px">
+                          <t t-foreach="patient" t-as="patients">
+                              <option t-att-value="patients.id">
+                                  <t t-esc="patients.name"/>
+                              </option>
+                          </t>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Admit Date</label>
+                    <input type="date" class="form-control" name="date" id="date" required="true" style="width:250px"/>
+                </div>
+                <div class="form-group">
+                    <label for="name">Room No.</label>
+                     <select name="room" class="form-control" style="width:250px">
+                          <t t-foreach="room" t-as="rooms">
+                              <option t-att-value="rooms.id">
+                                  <t t-esc="rooms.name"/>
+                              </option>
+                          </t>
+                      </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Assign Room</button>
+            </form></center>
+        </t>
+    </template>
+
+</odoo>

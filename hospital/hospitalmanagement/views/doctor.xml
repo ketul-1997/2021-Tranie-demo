@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="doctor_view_form" model="ir.ui.view">
+            <field name="name">Doctor Form</field>
+            <field name="model">doctor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="dob"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                    <field name="gender"/>
+                                    <field name="department"/>
+                                    <field name="yearexp"/>
+                            </group>
+                        </group>
+                        <group>
+                         <field name="patient_id" widget="many2many_tags"/>
+                        </group>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="doctor_view_tree" model="ir.ui.view">
+            <field name="name">Doctor Tree</field>
+            <field name="model">doctor</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="name"/>
+                        <field name="dob"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="department"/>
+                        <field name="yearexp"/>
+                        <field name="patient_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="doctor_view_search" model="ir.ui.view">
+    <field name="name">Docotr Search</field>
+    <field name="model">doctor</field>
+    <field name="arch" type="xml">
+    <search>
+         <field name="name"/>
+         <field name="dob"/>
+         <field name="age"/>
+         <field name="gender"/>
+         <field name="department"/>
+         <field name="yearexp"/>
+         <field name="patient_id"/>
+
+        <filter string="Age" name="age_above_30" domain="[('age', '>', 30)]"/>
+
+    </search>
+    </field>
+    </record>
+
+     <record id="doctor_action" model="ir.actions.act_window">
+        <field name="name">Doctor</field>
+        <field name="res_model">doctor</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem id="doctor_menu_sub"
+              name="Doctor"
+              parent="hospital_menu"
+              action="doctor_action"
+              sequence="8"/>
+
+
+</odoo>

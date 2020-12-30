@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record id="doctor_wizard_view" model="ir.ui.view">
+        <field name="name">Prescribed Medicines</field>
+        <field name="model">doctor.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                <field name="patient_id"/>
+                <field name="medicine_id" widget="many2many_tags"/>
+                </group>
+            </form>
+                  <footer>
+                        <button name="prescribe_medicine" type="object"
+                            class="oe_highlight">Prescribe</button>
+                        <button string="Cancel"
+                            class="btn-default"
+                            special="cancel" />
+                 </footer>
+
+        </field>
+    </record>
+
+    <record id="action_doctor_wizard_view" model="ir.actions.act_window">
+            <field name="name">Prescribe Medicines</field>
+            <field name="res_model">doctor.wizard</field>
+            <field name="view_id" ref="doctor_wizard_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+    </record>
+
+     <menuitem id="prescribe_wizard"
+              name="Prescribe Medicine"
+              parent="hospital_menu"
+              action="action_doctor_wizard_view"/>
+
+</data>
+</odoo>
