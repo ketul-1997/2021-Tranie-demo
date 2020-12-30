@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record id="website_menu_book" model="website.menu">
+            <field name="name">Books</field>
+            <field name="url">/books</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+
+        <template id="website_book_details">
+            <t t-call="website.layout">
+                <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Author</td>
+                            <td>Quantity</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="records" t-as="rec">
+                            <td>
+                                <t t-esc="rec.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="rec.type"/>
+                            </td>
+                            <td>
+                                <t t-esc="rec.author_name"/>
+                            </td>
+
+                            <td>
+                                <t t-esc="rec.qty"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </template>
+
+
+        <template id="website_book_issue">
+            <t t-call="website.layout">
+                <form action="/books/issue/submit"
+                      class="s_website_form form-horizontal container-fluid mt32">
+                    Book Name:
+                    <select name="book_name" id="book_name">
+                        <t t-foreach="records" t-as="rec">
+                            <option>
+                                <t t-esc="rec.name"/>
+                            </option>
+                        </t>
+                    </select>
+                    <br/>
+                    <br/>
+
+                    <button type="submit" value="submit" name="submit">Submit</button>
+                    <br/>
+                    <br/>
+                </form>
+            </t>
+        </template>
+
+    </data>
+</odoo>
