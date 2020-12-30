@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="send_confirm_mail_template" model="mail.template">
+            <field name="name">Deal Accepted Template</field>
+            <field name="model_id" ref="my_rental.model_tenant_data"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="email_from">${(user.email or ''|safe)}</field>
+            <field name="email_to">${(object.email)}</field>
+            <field name="subject">Ref ${object.name}</field> 
+            <field name="body_html"><![CDATA[
+                <p>Dear</p>
+                <br/>
+                <p>Your Request has been accepted by landlord.</p>
+                <br/>
+                ]]>
+            </field>
+        </record>
+        <record id="send_reject_mail_template" model="mail.template">
+            <field name="name">Deal Accepted Template</field>
+            <field name="model_id" ref="my_rental.model_tenant_data"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="email_from">${(user.email or ''|safe)}</field>
+            <field name="email_to">${(object.email)}</field>
+            <field name="subject">Ref ${object.name}</field> 
+            <field name="body_html"><![CDATA[
+                <p>Dear</p>
+                <br/>
+                <p>Your Request has been rejected by landlord.</p>
+                <br/>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

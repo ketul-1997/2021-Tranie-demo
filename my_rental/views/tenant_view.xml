@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Data records go here -->
+        <record id="tenant_form_view" model="ir.ui.view">
+            <field name="name">Tenant Form View</field>
+            <field name="model">tenant.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="accept" states="draft,cancel" style="margin: 1rem " class="btn btn-success" name="button_accept_deal" type="object" string="Accept Deal"/>
+                        <button id="reject" states="done,draft" style="margin: 1rem"  class="btn btn-danger" name="button_reject_deal" type="object" string="Reject Deal"/>
+                        <button id="draft" states="done,cancel" style="margin: 1rem"  class="btn btn-info" name="button_draft_deal" type="object" string="Save to Draft"/>
+                        <field style="margin-right:7rem" name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="house_name" />
+                                <field name="mobile"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                                <field name="buy_rent"/>
+                                <field name="price"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+        <record id="tenant_tree_view" model="ir.ui.view">
+            <field name="name">Tenant Tree View</field>
+            <field name="model">tenant.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="house_name" />
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="buy_rent"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tenant_search_view" model="ir.ui.view">
+            <field name="name">Tenant Search View</field>
+            <field name="model">tenant.data</field>
+            <field name="arch" type="xml">
+                <search string="Tenant Information">
+                    <field name="name"/>
+                    <field name="house_name" />
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="buy_rent"/>
+                    <field name="price"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_tenant_data" model="ir.actions.act_window">
+            <field name="name">Tenant</field>
+            <field name="res_model">tenant.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

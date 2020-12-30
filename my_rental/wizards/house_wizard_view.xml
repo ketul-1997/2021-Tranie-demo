@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="house_wizard_form" model="ir.ui.view">
+            <field name='name'>House wizard form view</field>
+            <field name='model'>house.wizard</field>
+            <field name="arch" type='xml'>
+                <form string="Update City">
+                    <group>
+                    <field name='society'/>
+                    <field name='area'/>
+                    <field name='landmark'/>
+                    <field name='city'/>
+                    </group>
+                    <footer>
+                        <button string='Update' type='object' name='house_record_update' class='btn-primary'/>
+                        <button string='Cancel' class='btn btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_house_wizard" model="ir.actions.act_window">
+            <field name="name">Update House</field>
+            <field name="res_model">house.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref='house_wizard_form'/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref='my_rental.model_house_data'/>
+        </record>
+    </data>
+</odoo>

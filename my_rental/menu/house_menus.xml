@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+      <menuitem id="main_menu" string="House" name="House Rental"/>
+      <menuitem id="house_menu" parent="main_menu" action="action_house_data" string="House"/>
+      <menuitem id="landlord_menu" parent="main_menu" action="action_landlord_data" string="Landlord"/>
+      <menuitem id="broker_menu" parent="main_menu" action="action_broker_data" string="Broker"/>
+      <menuitem id="rental_menu" parent="main_menu" action="action_rental_data" string="Rental"/>
+      <menuitem id="complaint_menu" parent="main_menu" action="action_complaint_data" string="Rental"/>
+      <menuitem id="tenant_menu" parent="main_menu" action="action_tenant_data" string="Rental"/>
+      <record id="rental_templates_menu" model="website.menu">
+           <field name="name">Houses</field>
+           <field name="url">/rental</field>
+           <field name="parent_id" ref="website.main_menu"/>    
+        </record>
+       <!-- <record id="tenant_form_menu" model="website.menu">
+           <field name="name">Buy/Rent House</field>
+           <field name="url">/rental/house/form</field>
+           <field name="parent_id" ref="website.main_menu"/>    
+       </record> -->
+   </data>
+</odoo>

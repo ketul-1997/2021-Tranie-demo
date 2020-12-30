@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Data records go here -->
+        <record id="broker_form_view" model="ir.ui.view">
+            <field name="name">Broker Form View</field>
+            <field name="model">broker.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="birth_date"/>
+                            <field name="address"/>
+                            <field name="mobile_no"/>
+                            <field name="landlord_ids"/>
+                            <field name="tenant_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="broker_tree_view" model="ir.ui.view">
+            <field name="name">Broker Tree View</field>
+            <field name="model">broker.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="birth_date"/>
+                    <field name="address"/>
+                    <field name="mobile_no"/>
+                    <field name="landlord_ids"/>
+                    <field name="tenant_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="broker_search_view" model="ir.ui.view">
+            <field name="name">broker Search View</field>
+            <field name="model">broker.data</field>
+            <field name="arch" type="xml">
+                <search string="House Information">
+                    <field name="name"/>
+                    <field name="birth_date"/>
+                    <field name="address"/>
+                    <field name="mobile_no"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_broker_data" model="ir.actions.act_window">
+            <field name="name">Broker</field>
+            <field name="res_model">broker.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

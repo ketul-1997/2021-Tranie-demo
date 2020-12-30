@@ -1,0 +1,218 @@
+<odoo>
+    <data>
+        <template id="house_data_template" name="House Details">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <br />
+                        <center>
+                            <h2>Houses Available for Rent and Sale</h2>
+                        </center>
+                        <br />
+                        <table class="table-striped table">
+                            <thead style="font-size: 23px;">
+                                <tr>
+                                    <h6>
+                                        <b>
+                                            <th>Name</th>
+                                            <th>Price From</th>
+                                            <th>Price To</th>
+                                        </b>
+                                    </h6>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="rentals" t-as="rental">
+                                    <tr>
+                                        <td>
+                                            <a t-attf-href="/rental/{{slug(rental)}}">
+                                                <span t-esc="rental.name"/>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <span t-esc="rental.start_price"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="rental.end_price"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="house_name_template" name="House Details">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <br />
+                        <center>
+                            <h3>House Details</h3>
+                        </center>
+                        <br />
+                        <table class="table-striped table">
+                            <thead style="font-size: 23px;">
+                                <tr>
+                                    <h6>
+                                        <b>
+                                            <th>House Name</th>
+                                            <th>Registered Number</th>
+                                            <th>Society</th>
+                                            <th>Area</th>
+                                            <th>Landmark</th>
+                                            <th>City</th>
+                                            <th>Landlord Name</th>
+                                        </b>
+                                    </h6>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-as="house">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="house.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="house.sequence"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="house.society"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="house.area"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="house.landmark"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="house.city"/>
+                                        </td>
+                                        <td>
+                                            <a t-attf-href="/rental/house/{{slug(house.landlord_id)}}">
+                                                <span t-esc="house.landlord_id.name"/>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <center>
+                            <a class="btn btn-primary" t-attf-href="/rental/house/form">
+                                Buy / Rent House
+                            </a>
+                        </center>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="landlord_name_template" name="Landlord Details">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <br />
+                        <center>
+                            <h3>Landlord Details</h3>
+                        </center>
+                        <br />
+                        <table class="table-striped table">
+                            <thead style="font-size: 23px;">
+                                <tr>
+                                    <h6>
+                                        <b>
+                                            <th>Landlord Name</th>
+                                            <th>Mobile</th>
+                                            <th>Email</th>
+                                        </b>
+                                    </h6>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-as="landlord">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="landlord.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="landlord.phone"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="landlord.email"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="house_tenant_form" name="Tenant Form">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <form action="/rental/house/form/submit">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" name="name" id="name" required="true" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="house_name">House Name:</label>
+                                    <select id="house_name" name="house_name" required="True" class="form-control" style="width: 432px; height: 35px;">
+                                        <t t-foreach="houses" t-as="house">
+                                            <option t-attf-value="#{house.id}">
+                                                <t t-esc="house.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mobile">Contact Number:</label>
+                                    <input type="text" class="form-control" name="mobile" id="mobile" required="true" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" name="email" id="email" required="true" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="buy_rent">What you want to do:</label>
+                                    <select name="buy_rent" id="buy_rent">
+                                        <option value="buy">Buy</option>
+                                        <option value="rent">Rent</option>
+                                        <option value="enquiring">Just Enquiring</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Your Buying/Renting Price:</label>
+                                    <input type="text" class="form-control" name="price" id="price" required="true" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="house_tenant_form_success" name="Tenant form success">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="alert alert-success">
+                                Form Submitted Successfully <br/>
+                                Thank you for your Interest!!!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
