@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_category,access_category,model_category,base.group_user,1,1,1,1
+access_company,access_company,model_company,base.group_user,1,1,1,1
+access_vehicles,access_vehicles,model_vehicles,base.group_user,1,1,1,1
+access_seller,access_seller,model_seller,base.group_user,1,1,1,1
+access_fueltype,access_fueltype,model_fueltype,base.group_user,1,1,1,1
+access_buyer,access_buyer,model_buyer,base.group_user,1,1,1,1
+access_requesthandel,access_requesthandel,model_requesthandel,base.group_user,1,1,1,1

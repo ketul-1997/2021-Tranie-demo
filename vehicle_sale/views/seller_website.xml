@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Display Selling Vehicles -->
+    <template id="website_vehicle_seller" name="Seller">
+        <t t-call="website.layout">
+            
+            <div class="container">
+                <t t-foreach="seller_info" t-as="doc">
+
+                    <div>
+                        <a t-attf-href="/vehicle/seller/{{slug(doc)}}" t-attf-class="list-group-item {{ 'active' if doc.id == details_id else '' }}">
+                            <t t-esc= "doc.name"/>
+                        </a>
+                    </div> 
+
+                </t>
+
+                <form action="/vehicle/seller/form">
+                    <button type="submit" string="Add Vehicle">New Vehicle</button>
+                </form>
+                
+            </div>
+
+        </t>
+    </template>
+
+    <!-- Displaying Individual Data -->
+    <template id="website_vehicle_seller_inherit">
+        <t t-call="website.layout">
+            <div class="container">
+                <t t-foreach="seller_info" t-as="data">
+                    <div>
+                        <lable>Name:</lable>
+                        <t t-esc= "data.name"/>
+                    </div>
+                    <div class="container">
+                        <lable>Contact No:</lable>
+                       <t t-esc="data.contact_no" />                       
+                    </div>
+                    <div class="container">
+                        <lable>Vehicle:</lable>
+                        <t t-esc= "data.vehicle.name"/>
+                    </div>
+                    <!-- <div class="container">
+                        <lable>Model:</lable>
+                        <t t-esc= "data.vehicle.model"/>
+                    </div> -->
+                    <div>
+                        <lable>Fuel:</lable>
+                        <t t-esc= "data.fuel.name"/>
+                    </div>
+                    <div>
+                        <lable>Model Year:</lable>
+                        <t t-esc= "data.model_year"/>
+                    </div>
+                    <div>
+                        <lable>RC No:</lable>
+                        <t t-esc= "data.rc_no"/>
+                    </div>
+                    <div>
+                        <label>Price:</label>
+                        <t t-esc= "data.price"/>
+                    </div>
+                    <div>
+                        <lable>Kilometers:</lable>
+                        <t t-esc= "data.kilometers"/>
+                    </div>
+                    <div>
+                        <lable>Status:</lable>
+                        <t t-esc= "data.status"/>
+                    </div>
+                    <div>
+                        <lable>Image:</lable>
+                        <t t-esc= "data.image" widget="image" class="oe_left oe_avatar" />
+                    </div>
+                    
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+    <!-- Vehicle Selling Form -->
+    <template id="vehicle_selling_form" name="Selleing Form">
+    <t t-call="website.layout">
+        <div id="wrap">
+            <div class="container">
+                <div class="col-md-12">
+                    <form action="/vehicle/seller/form/submit" enctype="multipart/form-data"  method="post" role="form" >
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" name="name" id="name" required="true" />
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="name">Contact No:</label>
+                            <input type="text" class="form-control" name="contact_no" id="contact_no" required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <lable for="name">Category:</lable>
+                            <select class="form-control" name="category">
+                                <t t-foreach= "category_info" t-as="category">
+                                    <option t-attf-value="#{category.id}"><t t-esc="category.name"/></option>
+                                </t>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Vehicle:</label>
+                             <select class="form-control" name="vehicle">
+                                <t t-foreach="vehicle_info" t-as="vehicle">
+                                    <option t-attf-value="#{vehicle.id}"><t t-esc="vehicle.name"/></option>
+                                </t>
+                             </select>
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label for="name">Model:</label>
+                             <select class="form-control" name="model">
+                                <t t-foreach="vehicle_info" t-as="vehi">
+                                    <option t-attf-value="#{vehi.id}"><t t-esc="vehi.model"/></option>
+                                    <t t-if="vehi.name" is="vehicle">
+                                    <option t-attf-value="#{vehi.id}"><t t-esc="vehi.model"/></option>
+                                    </t>
+                                </t>
+                             </select>
+                        </div> -->
+
+                        <div class="form-group">
+                            <label for="name">Model Year:</label>
+                            <input type="text" class="form-control" name="model_year" id="model_year" required="true" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <lable for="name">Fuel:</lable>
+                            <select class="form-control" name="fuel">
+                                <t t-foreach="fuel_info" t-as="fuel">
+                                    <option t-attf-value="#{fuel.id}"><t t-esc="fuel.name"/></option>
+                                </t>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="name">RC No:</label>
+                            <input type="text" class="form-control" name="rc_no" id="rc_no" required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Price:</label>
+                            <input type="number" class="form-control" name="price" id="price" required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Kilometers:</label>
+                            <input type="text" class="form-control" name="kilometers" id="kilometers" required="true" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">Image:</label>
+                            <input type="file" class="form-control" name="image" multiple="true" accept="image/*" t-attf-value="#{image or ''}"/>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+      </t>
+    </template>
+
+</odoo>
+

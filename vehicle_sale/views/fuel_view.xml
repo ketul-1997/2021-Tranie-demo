@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Fuel Form View -->
+        <record id="fueltype_form_view" model="ir.ui.view">
+            <field name="name">Fuel Form</field>
+            <field name="model">fueltype</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>                
+                </form>
+            </field>
+        </record>
+
+        <!-- Fuel Tree View -->
+        <record id="fueltype_tree_view" model="ir.ui.view">
+            <field name="name">Fuel List</field>
+            <field name="model">fueltype</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Fuel Search View -->
+        <record id="fueltype_search_view" model="ir.ui.view">
+            <field name="name">Fuel Search</field>
+            <field name="model">fueltype</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Fuel Action -->
+        <record id="fueltype_action" model="ir.actions.act_window">
+            <field name="name">Fuel</field>
+            <field name="res_model">fueltype</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- Vehicle Menu -->
+        <menuitem id="vehicle_main_menu" name="Vehicle Sell"/>
+        <menuitem id="add_fueltype_menu" parent="vehicle_main_menu" action="fueltype_action" name="Fuel" sequence="4"/>
+    </data>
+</odoo>

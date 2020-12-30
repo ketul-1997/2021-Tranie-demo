@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Buyer Form View -->
+        <record id="buyer_form_view" model="ir.ui.view">
+            <field name="name">Buyer Form</field>
+            <field name="model">buyer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="contact_no"/>
+                            <field name="vehicle"/>
+                            <field name="date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Buyer Tree View -->
+        <record id="buyer_tree_view" model="ir.ui.view">
+            <field name="name">Buyer Tree</field>
+            <field name="model">buyer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="contact_no"/>
+                    <field name="vehicle"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Buyer Search -->
+        <record id="buyer_search_view" model="ir.ui.view">
+            <field name="name">Buyer Search</field>
+            <field name="model">buyer</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="contact_no"/>
+                    <field name="vehicle"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Buyer Action -->
+        <record id="buyer_action" model="ir.actions.act_window">
+            <field name="name">Buyer</field>
+            <field name="res_model">buyer</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- Buyer Menuitem -->
+        <menuitem id="buyer_menuitem" parent="vehicle_main_menu" action="buyer_action" name="Buyer" sequence="6"/>
+    </data>
+</odoo>

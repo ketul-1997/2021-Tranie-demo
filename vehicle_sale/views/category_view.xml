@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Category Form View -->
+        <record id="category_form_view" model="ir.ui.view">
+            <field name="name">Category Form</field>
+            <field name="model">category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>                
+                </form>
+            </field>
+        </record>
+
+        <!-- Category Tree View -->
+        <record id="category_tree_view" model="ir.ui.view">
+            <field name="name">Category List</field>
+            <field name="model">category</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Category Search View -->
+        <record id="category_search_view" model="ir.ui.view">
+            <field name="name">Category Search</field>
+            <field name="model">category</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Category Action -->
+        <record id="category_action" model="ir.actions.act_window">
+            <field name="name">Category</field>
+            <field name="res_model">category</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- Vehicle Menu -->
+        <menuitem id="vehicle_main_menu" name="Vehicle Sell"/>
+        <menuitem id="add_category_menu" parent="vehicle_main_menu" action="category_action" name="Category" sequence="1"/>
+    </data>
+</odoo>
