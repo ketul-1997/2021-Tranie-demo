@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="complaint_wizard_form" model="ir.ui.view">
+            <field name='name'>Complaint wizard form view</field>
+            <field name='model'>complaint.wizard</field>
+            <field name="arch" type='xml'>
+                <form string="Update State">
+                    <group>
+                        <field name="resolved"/>
+                    </group>
+                    <footer>
+                        <button string='Update' type='object' name='complaint_record_update' class='btn-primary'/>
+                        <button string='Cancel' class='btn btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_complaint_wizard" model="ir.actions.act_window">
+            <field name="name">Update Complaint State</field>
+            <field name="res_model">complaint.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref='complaint_wizard_form'/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref='my_rental.model_complaint_data'/>
+        </record>
+    </data>
+</odoo>

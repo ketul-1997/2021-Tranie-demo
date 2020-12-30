@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="rental_data_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <h1>Rental Report for <t t-esc="doc.name.name"/>
+                        </h1>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Tenant Name</th>
+                                    <th>Rental Address</th>
+                                    <th>Price</th>
+                                    <th>Start_date</th>
+                                    <th>End_date</th>
+                                    <th>Tenure</th>
+                                    <th>Total</th>
+                                    <th>Rental Agree Id</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc" t-as="rental">
+                                    <td>
+                                        <t t-esc="rental.name.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.address" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.price" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.start_date" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.end_date" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.tenure" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.total" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="rental.sequence" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h2>Tenant Details</h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Tenant Name</th>
+                                    <th>House Name</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.name" t-as="tenant">
+                                    <td>
+                                        <t t-esc="tenant.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="tenant.house_name.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="tenant.mobile" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="tenant.email" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h2>House Details</h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>House Name</th>
+                                    <th>House Id</th>
+                                    <th>Society Name</th>
+                                    <th>Area</th>
+                                    <th>Landmark</th>
+                                    <th>City</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.name.house_name" t-as="house">
+                                    <td>
+                                        <t t-esc="house.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="house.sequence" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="house.society" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="house.area" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="house.landmark" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="house.city" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h2>Landlord Details</h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Landlord Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.landlord_id" t-as="landlord">
+                                    <td>
+                                        <t t-esc="landlord.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="landlord.phone" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="landlord.email" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

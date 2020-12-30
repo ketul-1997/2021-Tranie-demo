@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_rental_order" model="ir.sequence">
+            <field name="name">Rental Order</field>
+            <field name="code">rental.data</field>
+            <field name="prefix">R</field>
+            <field name="padding">5</field>
+        </record>
+
+        <!-- Data records go here -->
+        <record id="rental_form_view" model="ir.ui.view">
+            <field name="name">Rental Form View</field>
+            <field name="model">rental.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="address" />
+                                <field name="price"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="tenure"/>
+                                <field name="total"/>
+                            </group>
+                            <group>
+                                <field name="landlord_id"/>
+                                <field name="user_id"/>
+                                <field name="sequence"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+        <record id="rental_tree_view" model="ir.ui.view">
+            <field name="name">Rental Tree View</field>
+            <field name="model">rental.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="address" />
+                    <field name="price"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="tenure"/>
+                    <field name="total"/>
+                    <field name="landlord_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rental_search_view" model="ir.ui.view">
+            <field name="name">Rental Search View</field>
+            <field name="model">rental.data</field>
+            <field name="arch" type="xml">
+                <search string="Rental Information">
+                    <field name="name"/>
+                    <field name="address" />
+                    <field name="price"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="landlord_id"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="rental_calendar_view" model="ir.ui.view">
+            <field name="name">Rental Calendar View</field>
+            <field name="model">rental.data</field>
+            <field name="arch" type="xml">
+                <calendar date_start="start_date" date_stop="end_date" color="name">
+                    <field name="name"/>
+                    <field name="address" />
+                    <field name="price"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="landlord_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="action_rental_data" model="ir.actions.act_window">
+            <field name="name">Rental agreement</field>
+            <field name="res_model">rental.data</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+    </data>
+</odoo>

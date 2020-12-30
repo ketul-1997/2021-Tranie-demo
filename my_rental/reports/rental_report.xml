@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo >
+    <report id = "rental_data_report"
+            name = "my_rental.rental_data_template"
+            model = "rental.data"
+            string = "Rental Report"
+            report_type = "qweb-pdf"
+    />
+</odoo >

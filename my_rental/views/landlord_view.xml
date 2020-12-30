@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Data records go here -->
+        <record id="landlord_form_view" model="ir.ui.view">
+            <field name="name">Landlord Form View</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <sheet>
+                        <group>
+                            <field name="house_ids"/>
+                            <field name="broker_ids"/>
+                            <field name="complaint_ids"/>
+                        </group>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>`
+
+        <record id="landlord_tree_view" model="ir.ui.view">
+            <field name="name">Landlord Tree View</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="house_ids"/>
+                    <field name="broker_ids"/>
+                    <field name="complaint_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- <record id="landlord_search_view" model="ir.ui.view">
+            <field name="name">Landlord Search View</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <field name="house_ids"/>
+                </xpath>
+            </field>
+        </record> -->
+
+        <record id="action_landlord_data" model="ir.actions.act_window">
+            <field name="name">Landlord</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

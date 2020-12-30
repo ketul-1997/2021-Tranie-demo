@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="seq_complaint_number" model="ir.sequence">
+            <field name="name">Complaint Number</field>
+            <field name="code">complaint.data</field>
+            <field name="prefix">C</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="complaint_form_view" model="ir.ui.view">
+            <field name="name">Complaint Form View</field>
+            <field name="model">complaint.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="ctype"/>
+                            <field name="desc"/>
+                            <field name="date"/>
+                            <field name="resolved"/>
+                            <field name="landlord_id"/>
+                            <field name="tenant_id"/>
+                            <field name="user_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="complaint_tree_view" model="ir.ui.view">
+            <field name="name">Complaint Tree View</field>
+            <field name="model">complaint.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="ctype"/>
+                    <field name="desc"/>
+                    <field name="date"/>
+                    <field name="resolved"/>
+                    <field name="landlord_id"/>
+                    <field name="tenant_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="complaint_search_view" model="ir.ui.view">
+            <field name="name">Complaint Search View</field>
+            <field name="model">complaint.data</field>
+
+            <field name="arch" type="xml">
+                <search string="Complaint Information">
+                    <field name="name"/>
+                    <field name="ctype"/>
+                    <field name="desc"/>
+                    <field name="date"/>
+                    <field name="resolved"/>
+                    <field name="landlord_id"/>
+                    <field name="tenant_id"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="product_calendar_view" model="ir.ui.view">
+            <field name="name">Complaint Calendar View</field>
+            <field name="model">complaint.data</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date" color="name">
+                    <field name="name"/>
+                    <field name="ctype"/>
+                    <field name="desc"/>
+                    <field name="date"/>
+                    <field name="resolved"/>
+                    <field name="landlord_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="action_complaint_data" model="ir.actions.act_window">
+            <field name="name">Complaint</field>
+            <field name="res_model">complaint.data</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+    </data>
+</odoo>

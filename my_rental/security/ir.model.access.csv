@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_house_data,access_house_data,model_house_data,base.group_user,1,1,1,1
+access_broker_data,access_broker_data,model_broker_data,base.group_user,1,1,1,1
+access_rental_data,access_rental_data,model_rental_data,base.group_user,1,1,1,1
+access_complaint_data,access_complaint_data,model_complaint_data,base.group_user,1,1,1,1
+access_tenant_data,access_tenant_data,model_tenant_data,base.group_user,1,1,1,1
