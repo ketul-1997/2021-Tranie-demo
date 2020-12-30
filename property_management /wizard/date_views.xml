@@ -1,0 +1,59 @@
+<flectra>
+    <data>
+        <record id="view_date_tenancy" model="ir.ui.view">
+            <field name="name">Tenancy Date Report</field>
+            <field name="model">date.tenancy.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Tenancy Information">
+                    <group colspan="4">
+                        <field name="tenant_id"/>
+                        <field name="s_date"/>
+                        <field name="e_date"/>
+                    </group>
+                    <footer>
+                        <button class="product_pdf_button" name="print_report" string="Print Pdf" type="object"/>
+                        <button class="product_cancel_button" string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="act_win_confirm_tenancy_date_detail"
+                    name="Confirm Tenancy Date Detail"
+                    src_model="tenancy.details"
+                    res_model="date.tenancy.report.wizard"
+                    view_mode="form"
+                    target="new"
+                    multi="True"/>
+
+        <record model="ir.actions.act_window" id="tenancy_date_wizard_action">
+            <field name="name">Tenancy Date Report</field>
+            <field name="res_model">date.tenancy.report.wizard</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">form</field>
+<!--            <field name="view_id" ref="property_management.view_tenancy_details_tree"/>-->
+            <field name="context">{}</field>
+            <field name="target">new</field>
+        </record>
+
+
+         <menuitem id="reports"
+                  name="Reports"
+                  parent="property_management_root"
+        />
+
+        <menuitem id="report"
+                  name="Report"
+                  parent="reports"/>
+
+
+        <menuitem id="tenancy_date_report"
+                  name="Tenancy Date report"
+                  parent="report"
+                  action="tenancy_date_wizard_action"/>
+
+
+
+
+    </data>
+</flectra>

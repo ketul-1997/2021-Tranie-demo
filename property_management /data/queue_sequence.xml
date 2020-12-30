@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--<flectra>-->
+<!--    <record forcecreate="True" id="ir_complaints_scheduler_action" model="ir.cron">-->
+<!--        <field name="name">Complaints Message</field>-->
+<!--        <field name="model_id" ref="com1_box.complaints_comments"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">com1_box.Sendmail()</field>-->
+<!--        <field name='interval_number'>1</field>-->
+<!--        <field name='interval_type'>minute</field>-->
+<!--        <field name="numbercall">-1</field>-->
+<!--    </record>-->
+<flectra>
+     <record id="seq_property_registration" model="ir.sequence">
+            <field name="name">Property Code</field>
+            <field name="code">property.details</field>
+            <field name="prefix">P</field>
+            <field name="padding">4</field>
+            <field name="number" eval="False"/>
+        </record>
+
+      <record id="sequence_pre_group" model="ir.sequence">
+            <field name="name">tenancy</field>
+            <field name="code">tenancy.details</field>
+            <field name="prefix">Tenancy-</field>
+            <field name="padding">3</field>
+<!--            <field name="number_next">1</field>-->
+<!--            <field name="number_increment">1</field>-->
+            <field name="tenancy_name" eval="False"/>
+        </record>
+
+</flectra>
+
+
+

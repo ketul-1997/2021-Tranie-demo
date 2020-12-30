@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <!--  property Form View -->
+        <record id="view_tenancy_details_form" model="ir.ui.view">
+            <field name="name">tenancy.details.form</field>
+            <field name="model">tenancy.details</field>
+            <field name="arch" type="xml">
+                <form string="Property Information">
+                    <header>
+                        <button name="make_invoices" string="Create Invoices" type="object"
+                                class="btn-primary" statusbar_visible="create invoices"/>
+
+                        <button name="view_invoices" string="View Invoices" type="object"
+                                attrs="{'invisible': [('bool_field', '=', True)]}"
+                               class="oe_highlight">
+                                <field name="bool_field" invisible="1"/>
+                        </button>
+
+                        <button name="confirm_new" string="New" class="oe_highlight" type="object"
+                                statusbar_visible="new"/>
+
+                        <button name="confirm_inprogress" string="In Progress" class="oe_highlight"
+                                type="object" statusbar_visible="in_progress"/>
+
+                        <button name="confirm_close" string="Close" class="oe_highlight"
+                                type="object" statusbar_visible="close"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="state"/>
+
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" string="Scheduled Rent"
+                                    class="oe_stat_button" icon="fa-clock-o">
+                            </button>
+                            <button name="toggle_active2" type="object" string="Deposit Receive"
+                                    class="oe_stat_button" icon="fa-arrow-right">
+                            </button>
+
+                            <button name="toggle_active3" type="object" string="Cancel Tenancy"
+                                    class="oe_stat_button" icon="fa-times-circle text-danger">
+                            </button>
+                            <button name="toggle_active4" type="object" string="Cancel"
+                                    class="oe_stat_button" icon="fa-times-circle text-danger">
+                            </button>
+
+                        </div>
+                        <group>
+                            <h1>
+                                <field name="tenancy_name"/>
+                            </h1>
+
+                        </group>
+                        <group string="Tenancy Information" col="4">
+
+                            <field name="property_id"/>
+                            <field name="account_manager"/>
+                            <field name="currency"/>
+                            <field name="tenant_id"/>
+                            <field name="company_id"/>
+                        </group>
+
+                        <group string="Tenancy Information" col="4">
+                            <field name="tenancy_rent"/>
+                            <field name="account_deposit"/>
+                            <field name="deposit_receive"/>
+                            <field name="date"/>
+                            <field name="deposit_return"/>
+                            <field name="d_return"/>
+                            <field name="contact"/>
+                        </group>
+                        <group string="Contact Information" col="4">
+                            <field name="start_date"/>
+                            <field name="rent_type"/>
+                            <field name="tenancy_contact"/>
+                            <field name="expiration_date"/>
+                            <field name="total_rent"/>
+                        </group>
+
+
+                        <notebook colspan="4">
+                            <page name="rent_schedule" string="Rent Schedule">
+                                <group col="4" colspan="4">
+                                </group>
+                            </page>
+                            <page name="history" string="History">
+                                <group col="4" colspan="4">
+                                </group>
+                            </page>
+                            <page name="term_condition" string="Term Condition">
+                                <group col="4" colspan="4">
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tenancy_details_tree" model="ir.ui.view">
+            <field name="name">tenancy.details.tree</field>
+            <field name="model">tenancy.details</field>
+            <field name="arch" type="xml">
+                <tree string="Tenancy Information">
+                    <field name="date"/>
+                    <field name="tenancy_name"/>
+                    <field name="property_id"/>
+                    <field name="currency"/>
+                    <field name="tenant_id"/>
+                    <field name="company_id"/>
+                    <field name="tenancy_rent"/>
+                    <field name="start_date"/>
+                    <field name="expiration_date"/>
+                    <field name="rent_type"/>
+                    <field name="account_deposit"/>
+                    <field name="total_rent"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_tenancy_details_search" model="ir.ui.view">
+            <field name="name">tenancy.details.search</field>
+            <field name="model">tenancy.details</field>
+            <field name="arch" type="xml">
+                <search string="Tenancy Information">
+                    <field name="tenancy_name"/>
+                    <field name="property_id"/>
+                    <field name="account_manager"/>
+                    <field name="currency"/>
+                    <field name="tenant_id"/>
+                    <field name="company_id"/>
+                    <field name="tenancy_rent"/>
+                    <field name="account_deposit"/>
+                    <field name="deposit_receive"/>
+                    <field name="date"/>
+                    <field name="deposit_return"/>
+                    <field name="d_return"/>
+                    <field name="contact"/>
+                    <field name="start_date"/>
+                    <field name="rent_type"/>
+                    <field name="tenancy_contact"/>
+                    <field name="expiration_date"/>
+                    <field name="total_rent"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_tenancy_details_calendar" model="ir.ui.view">
+            <field name="name">tenancy.details.pivot</field>
+            <field name="model">tenancy.details</field>
+            <field name="arch" type="xml">
+                <calendar color="tenancy_name" date_start="start_date" string="Tenancy Information">
+                    <field name="tenancy_name"/>
+                    <field name="property_id"/>
+                    <field name="account_manager"/>
+                    <field name="currency"/>
+                    <field name="tenant_id"/>
+                    <field name="company_id"/>
+                    <field name="tenancy_rent"/>
+                    <field name="account_deposit"/>
+                    <field name="deposit_receive"/>
+                    <field name="date"/>
+                    <field name="deposit_return"/>
+                    <field name="d_return"/>
+                    <field name="contact"/>
+                    <field name="start_date"/>
+                    <field name="rent_type"/>
+                    <field name="tenancy_contact"/>
+                    <field name="expiration_date"/>
+                    <field name="total_rent"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <record id="view_tenancy_details_pivot" model="ir.ui.view">
+            <field name="name">tenancy.details.pivot</field>
+            <field name="model">tenancy.details</field>
+            <field name="arch" type="xml">
+                <pivot string="Tenancy Information">
+                    <field name="tenancy_name"/>
+                    <field name="property_id"/>
+                    <field name="account_manager"/>
+                    <field name="currency"/>
+                    <field name="tenant_id"/>
+                    <field name="company_id"/>
+                    <field name="tenancy_rent"/>
+                    <field name="account_deposit"/>
+                    <field name="deposit_receive"/>
+                    <field name="date"/>
+                    <field name="deposit_return"/>
+                    <field name="d_return"/>
+                    <field name="contact"/>
+                    <field name="start_date"/>
+                    <field name="rent_type"/>
+                    <field name="tenancy_contact"/>
+                    <field name="expiration_date"/>
+                    <field name="total_rent"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <record id="action_tenancy_details_installer" model="ir.actions.act_window">
+            <field name="name">Tenancy Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tenancy.details</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,pivot</field>
+        </record>
+
+        <menuitem id="tenancy_management"
+                  name="Tenancy"
+                  parent="property_management_root"
+                  action="action_tenancy_details_installer"/>
+    </data>
+
+</flectra>

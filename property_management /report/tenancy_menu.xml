@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data>
+        <report
+                id="action_property_report"
+                model="tenancy.details"
+                string="Tenancy Report"
+                report_type="qweb-pdf"
+                name="property_management.report_property_data"
+                file="property_management.report_property_data"
+                menu="False"
+        />
+    </data>
+</flectra>
+
