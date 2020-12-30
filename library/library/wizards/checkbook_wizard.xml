@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+ 
+     <act_window id="bookrequest_wizard_action" name="Stock" res_model="checkbook" binding_model="bookrequest"  view_mode="form" target="new" />
+    
+    
+    <record id="demo_wicheckbook_wizard_viewzard_view" model="ir.ui.view">
+        <field name="name">checkbook wizard View</field>
+        <field name="model">checkbook</field>
+        <field name="arch" type="xml">
+
+            <form>
+                
+                <group>
+                    <h1>Book is <field name="name"/></h1> 
+                </group>
+                <footer>
+                    
+                    <button string="Cancel" class="on_right" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    
+</odoo>
