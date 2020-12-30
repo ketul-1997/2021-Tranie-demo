@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+
+        <menuitem id="menu_item_library_root" name="library Management System"/>
+        <menuitem id="menu_item_books_sub"  name="Books" parent="menu_item_library_root" action="action_book"/>
+
+<!--        <menuitem id="menu_item_issue_book_sub"  name="Issue Books" parent="menu_item_library_root" action="action_book_issue"/>-->
+
+     </data>
+</odoo>
