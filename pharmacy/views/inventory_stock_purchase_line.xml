@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="view_pharmacy_inventory_stock_purchase_line_form_view" model="ir.ui.view">
+            <field name="name">pharmacy.inventory.stock.purchase.line.form</field>
+            <field name="model">pharmacy.inventory.stock.purchase.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name="customer_id"/>
+                            <field name="medicine_id"/>
+                            <field name="stock_purchase"/>
+                            <field name="stock_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pharmacy_inventory_stock_purchase_line_tree_view" model="ir.ui.view">
+            <field name="name">pharmacy.inventory.stock.purchase.line.tree</field>
+            <field name="model">pharmacy.inventory.stock.purchase.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="customer_id"/>
+                    <field name="medicine_id"/>
+                    <field name="stock_purchase"/>
+                    <field name="stock_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pharmacy_inventory_stock_purchase_line" model="ir.actions.act_window">
+            <field name="name">Inventory Stock Purchase</field>
+            <field name="res_model">pharmacy.inventory.stock.purchase.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

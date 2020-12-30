@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        <template id="website_pharmacy_medicine_template_form">
+            <t t-call="website.layout">
+                <div class="container">
+                    <form action="/pharmacy/medicine/form/submit">
+                        Medicine:
+                        <select name="name">
+                            <t t-foreach="medicines" t-as="med">
+                                <option>
+                                    <t t-esc="med.name"/>
+                                </option>
+                            </t>
+                        </select>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <br/>
+                    </form>
+                </div>
+            </t>
+        </template>
+
+        <template id="website_pharmacy_medicine_template_form_submit">
+            <t t-call="website.layout">
+                <div class="container">
+                    <span>Medicine Details</span>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Manufactured Date
+                            </th>
+                            <th>
+                                Stock
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <t t-esc="medicines.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="medicines.price"/>
+                            </td>
+                            <td>
+                                <t t-esc="medicines.manufacture_date"/>
+                            </td>
+                            <td>
+                                <t t-esc="medicines.stock"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <form t-attf-action="/pharmacy/medicine/form/qty/{{ slug(medicines) }}">
+                        Name:
+                        <input type="text" name="cust_name"/>
+                        <br/>
+                        Add Quantity:
+                        <input type="text" name="qty"/>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Buy</button>
+                    </form>
+                </div>
+            </t>
+        </template>
+
+        <template id="website_pharmacy_medicine_template_thanks">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h3>Thanks for Shopping</h3>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
