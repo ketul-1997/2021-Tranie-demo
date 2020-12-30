@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="view_employee_coustom" model="ir.ui.view">
+            <field name="name">Rent Agreement wizard</field>
+            <field name="model">coustom.report.wizard</field>
+            <field name="arch" type="xml">
+                <form >
+                    <field name="company_name"/>
+                    <footer>
+                        <button string='Update Phase' name="render_html" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_rent_agrement_report_wizard" model="ir.actions.act_window">
+            <field name="name">print Report</field>
+            <field name="res_model">coustom.report.wizard</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_employee_coustom"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="job_management.model_employee_information"/>
+        </record>
+        <menuitem id= "agreement_coustom_wizard_menu" parent="company_job_view_menu" name="Report" action="action_rent_agrement_report_wizard"/>
+
+    </data>
+</odoo>

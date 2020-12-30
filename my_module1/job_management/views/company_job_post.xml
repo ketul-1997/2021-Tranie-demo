@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!-- <menuitem id= "building_view_menu_sub1" parent="building_view_menu_sub" name="Building Department" action="action_building_sub"/> -->
+            <record id="job_post_view_form" model="ir.ui.view">
+                        <field name="name">Job psot Form</field>
+                        <field name="model">job.post</field>
+                        <field name="arch" type="xml">
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <field name="c_name"/>
+                                        <field name="c_mobile" /> 
+                                    </group>
+                                    <group>
+                                        <field name="pin_code"/>
+                                        <field name="email"/>
+                                        <field name="address"/>
+                                         <field name="job_info"/>
+                                    </group>
+                                    <group>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="no_of_postion"/>
+                                        <field name="job_type"/>
+                                        <field name="job_description"/>
+                                        <field name="salary"/>                                    
+                                    </group>    <!-- <button name="data_fatch" type='object' string="Button"/> -->
+                                </sheet>
+                            </form>
+                        </field>
+
+                        
+                    
+            </record>
+           
+            <record id="job_post_view_tree" model="ir.ui.view">
+                    <field name="name">Job psot List</field>
+                    <field name="model">job.post</field>
+                    <field name="arch" type="xml">
+                        <tree>
+                            <field name="c_name"/>
+                            <field name="c_mobile" /> 
+                            <field name="pin_code"/>
+                            <field name="address"/>
+                            <field name="job_info"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="no_of_postion"/>
+                            <field name="job_type"/>
+                            <field name="job_description"/>
+                            <field name="salary"/>   
+                        </tree>
+                    </field>
+            </record>
+            <record id="job_post_view_search" model="ir.ui.view">
+                    <field name="name">Job psot search</field>
+                    <field name="model">job.post</field>
+                    <field name="arch" type="xml">
+                        <search>
+                           <field name="c_name"/>
+                            <field name="c_mobile" /> 
+                            <field name="pin_code"/>
+                            <field name="address"/>
+                            <field name="job_info"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="no_of_postion"/>
+                            <field name="job_type"/>
+                            <field name="job_description"/>
+                            <field name="salary"/>   
+                        </search>
+                    </field>
+            </record>
+
+            <record id= "action_job_post" model="ir.actions.act_window">
+                <field name="name">Compnay Registration</field>
+                <field name="res_model">job.post</field>
+                <field name="view_mode">tree,search,form</field>
+            </record>
+            
+            
+            <!-- <menuitem id= "company_job_view_menu" name="Job management" />
+            
+            <menuitem id= "company_view_menu_sub" parent="company_job_view_menu" name="Company Registration" action="action_company_registration"/> -->
+            <!-- <menuitem id= "building_view_menu_sub" parent="building_view_menu" name="Building Department" action="action_company_registration"/> -->
+    </data>
+</odoo>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="jobpost_website" >
+        <t t-call="website.layout">
+        <div class="container">
+            <t t-foreach="job_post_info" t-as="doc">
+                <div>`
+
+                <a t-attf-href="/jobpost/{{slug(doc)}}" t-attf-class="list-group-item {{ 'active' if doc.id == details_id else '' }}">
+                <div>
+                <label for="name"> Company Name:</label>    
+                <t t-esc= "doc.c_name.name"/>
+                </div>
+                <label for="name"> Postion</label><li><t t-esc= "doc.job_info"/></li>
+                <label for="name"> Job Type</label><li><t t-esc= "doc.job_type"/></li>
+
+                </a>
+                    <!-- <p><a t-attf-href="/building/{{ slug(doc) }}"><t t-esc="doc.name"/></a></p> -->
+                    
+                </div>       
+                
+            </t>
+        </div>       
+    
+        </t>    
+    </template>
+    
+    
+    <template id="jobpost_website_inherit">
+        <t t-call="website.layout">
+        <div class="container">
+        <t t-foreach="job_post_info" t-as="docs">
+        
+        <div>
+
+        <label for="name"> Company Name:</label>
+        <t t-esc= "docs.c_name.name"/>
+        </div>
+        
+        <div>
+        <label for="name"> Contact no:</label>
+            <t t-esc= "docs.c_mobile"/>
+        </div>
+      
+        <div>
+        <label for="name"> Pincode:</label>
+            <t t-esc= "docs.pin_code"/>
+        </div>
+
+        <div>
+        <label for="name"> Enter Your Company Addres:</label>
+            <t t-esc= "docs.address"/>
+        </div>
+
+        <div>
+        <label for="name"> job name:</label>
+            <t t-esc= "docs.job_info"/>
+        </div>
+
+        <div>
+        <label for="name"> Start Date:</label>
+            <t t-esc= "docs.start_date"/>
+        </div>
+
+        <div>
+        <label for="name"> End Date:</label>
+            <t t-esc= "docs.end_date"/>
+        </div>
+
+        <div>
+        <label for="name"> Number of hires for this role:</label>
+            <t t-esc= "docs.no_of_postion"/>
+        </div>
+        
+        
+        <div>
+        <label for="name"> Job type:</label>
+            <t t-esc= "docs.job_type"/>
+        </div>
+  
+        <div>
+        <label for="name">Enter your small information about your job:</label>
+            <t t-esc= "docs.job_description"/>
+        </div>
+        
+        <div>
+        <label for="name"> Salary Per month:</label>
+            <t t-esc= "docs.salary"/>
+        </div>
+        
+        <a t-attf-href="/jobpost/employee/{{slug(docs)}}" >
+        <button type="submit"  class="btn btn-primary">Apply</button>
+        </a>
+        
+        <div>
+            
+        </div>
+        </t>
+        </div>       
+    
+    </t>    
+    </template>
+   
+   
+</odoo>    

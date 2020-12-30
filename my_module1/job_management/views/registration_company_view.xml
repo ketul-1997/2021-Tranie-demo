@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!-- <menuitem id= "building_view_menu_sub1" parent="building_view_menu_sub" name="Building Department" action="action_building_sub"/> -->
+            <record id="company_view_form" model="ir.ui.view">
+                        <field name="name">Company Form</field>
+                        <field name="model">company.registraion</field>
+                        <field name="arch" type="xml">
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="c_mobile"/>
+                                             <field name="email"/>
+                                        </group>
+                                        <group>
+                                            <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                        </group>
+                                        <group> 
+                                            <field name="pin_code"/>
+                                            <field name="address"/>
+                                           
+                                        </group>
+                                       
+                                    </group>
+                                        <!-- <button name="data_fatch" type='object' string="Button"/> -->
+                                </sheet>
+                            </form>
+                        </field>
+                    </record>
+           
+            <record id="company_view_tree" model="ir.ui.view">
+                    <field name="name">Company List</field>
+                    <field name="model">company.registraion</field>
+                    <field name="arch" type="xml">
+                        <tree>
+                            <field name="name"/>
+                            <field name="c_mobile" /> 
+                            <field name="pin_code"/>
+                            <field name="address"/>
+                             <field name="email"/>
+                        </tree>
+                    </field>
+            </record>
+            <record id="company_view_search" model="ir.ui.view">
+                    <field name="name">Company</field>
+                    <field name="model">company.registraion</field>
+                    <field name="arch" type="xml">
+                        <search>
+                            <field name="name"/>
+                            <field name="c_mobile" /> 
+                            <field name="pin_code"/>
+                            <field name="address"/>
+                            <field name="email"/>
+                        </search>
+                    </field>
+            </record>
+
+
+            
+            <record id= "action_company_registration" model="ir.actions.act_window">
+                <field name="name">Compnay Registration</field>
+                <field name="res_model">company.registraion</field>
+                <field name="view_mode">tree,search,form</field>
+            </record>
+            
+            <!-- <menuitem id= "company_job_view_menu" name="Job management" />
+            
+            <menuitem id= "company_view_menu_sub" parent="company_job_view_menu" name="Company Registration" action="action_company_registration"/> -->
+            <!-- <menuitem id= "building_view_menu_sub" parent="building_view_menu" name="Building Department" action="action_company_registration"/> -->
+    </data>
+</odoo>
