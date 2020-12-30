@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="medicine_purchase_wizard_form_view" model="ir.ui.view">
+            <field name="name">medicine.purchase.wizard.form</field>
+            <field name="model">medicine.purchase.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="medicine_id"/>
+                            <field name="customer_name"/>
+                            <field name="qty"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Submit" name="purchase_medicine" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="medicine_purchase_wizard_action" model="ir.actions.act_window">
+            <field name="name">Medicine Purchase Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">medicine.purchase.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="medicine_purchase_wizard_form_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window id="action_medicine_purchase" name="Purchase Medicine" res_model="medicine.purchase.wizard"
+                    binding_model="stock.inventory" view_mode="form" target="new"/>
+    </data>
+</odoo>

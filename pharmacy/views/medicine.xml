@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record id="view_pharmacy_medicine_form_view" model="ir.ui.view">
+            <field name="name">pharmacy.medicine.form</field>
+            <field name="model">pharmacy.medicine</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="price"/>
+                            <field name="manufacture_date"/>
+                            <field name="stock"/>
+                            <field name="stock_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pharmacy_medicine_tree_view" model="ir.ui.view">
+            <field name="name">pharmacy.medicine.tree</field>
+            <field name="model">pharmacy.medicine</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="manufacture_date"/>
+                    <field name="stock"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pharmacy_medicine_search_view" model="ir.ui.view">
+            <field name="name">pharmacy.medicine.search</field>
+            <field name="model">pharmacy.medicine</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="manufacture_date"/>
+                    <field name="stock"/>
+                    <field name="stock_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_pharmacy_medicine" model="ir.actions.act_window">
+            <field name="name">Medicine</field>
+            <field name="res_model">pharmacy.medicine</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+    </data>
+</odoo>

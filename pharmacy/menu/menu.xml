@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="website_pharmacy_medicine_form_menu" model="website.menu">
+            <field name="name">Medicine</field>
+            <field name="url">/pharmacy/medicine/form</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+
+        <menuitem id="menu_item_pharmacy_root" name="Pharmacy Management"/>
+
+        <menuitem id="menu_item_pharmacy_medicine_sub_menu" name="Medicine" parent="menu_item_pharmacy_root"
+                  action="action_pharmacy_medicine"/>
+
+        <menuitem id="menu_item_pharmacy_inventory_stock_purchase_line_sub_menu" name="Inventory Stock Purchase"
+                  parent="menu_item_pharmacy_root"
+                  action="action_pharmacy_inventory_stock_purchase_line"/>
+
+        <menuitem id="menu_item_res_partner_sub_menu" name="Contacts" parent="menu_item_pharmacy_root"
+                  action="base.action_partner_customer_form"/>
+
+        <menuitem id="menu_item_stock_inventory_sub_menu" name="Inventory" parent="menu_item_pharmacy_root"
+                  action="stock.action_inventory_form"/>
+
+        <menuitem id="menu_item_purchase_medicine_sub_menu" name="Purchase Medicine" parent="menu_item_pharmacy_root"
+                  action="action_medicine_purchase"/>
+    </data>
+</odoo>
