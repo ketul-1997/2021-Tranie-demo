@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Creating Form View -->
+        <record id="request_form_view" model="ir.ui.view">
+            <field name="name">Request Form</field>
+            <field name="model">requesthandel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                    <header>
+                        <button type="object" name="status_change_to_accepted" string="Accept"/>
+                        <button type="object" name="status_change_to_deleted" string="Deleted"/>
+                        <button type="object" name="status_change_to_requested" string="Requested"/>
+                    </header>
+                    <group>
+                        <field name="seller"/>
+                        <field name="buyer"/>
+                        <field name="bid_price"/>
+                        <field name="status"/>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Creating Tree View -->
+        <record id="request_tree_view" model="ir.ui.view">
+            <field name="name">Request Tree</field>
+            <field name="model">requesthandel</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="seller"/>
+                    <field name="buyer"/>
+                    <field name="bid_price"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Creating Tree View -->
+        <record id="request_search_view" model="ir.ui.view">
+            <field name="name">Request Search</field>
+            <field name="model">requesthandel</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="seller"/>
+                    <field name="buyer"/>
+                    <field name="bid_price"/>
+                    <field name="status"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Creating Action -->
+        <record id="request_action" model="ir.actions.act_window">
+            <field name="name">Request</field>
+            <field name="res_model">requesthandel</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- Creating Menuitem -->
+        <menuitem id="request_menuitem" name="Request" parent="vehicle_main_menu" action="request_action" sequence="7"/>
+
+    </data>
+</odoo>

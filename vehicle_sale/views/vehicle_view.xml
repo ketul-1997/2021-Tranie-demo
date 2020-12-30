@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- vehicles Form View -->
+        <record id="vehicles_form_view" model="ir.ui.view">
+            <field name="name">vehicles Form</field>
+            <field name="model">vehicles</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="category"/>
+                            <field name="company"/>
+                            <field name="name" />
+                            <field name="model" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- vehicles Tree View -->
+        <record id="vehicles_tree_view" model="ir.ui.view">
+            <field name="name">vehicles Tree</field>
+            <field name="model">vehicles</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="category"/>
+                    <field name="company"/>
+                    <field name="model" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- vehicles Search View -->
+        <record id="vehicles_search_view" model="ir.ui.view">
+            <field name="name">vehicles Search</field>
+            <field name="model">vehicles</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="category"/>
+                    <field name="company"/>
+                    <field name="name" />
+                    <field name="model" />
+                </search>
+            </field>
+        </record>
+
+        <!-- vehicles Action View -->
+        <record id="vehicles_action" model="ir.actions.act_window">
+            <field name="name">Vehicles</field>
+            <field name="res_model">vehicles</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- vehicles Menuitem -->
+        <menuitem id="vehicle_menuitem" parent="vehicle_main_menu" name="Vehicle" action="vehicles_action" sequence="3"/>
+    </data>
+</odoo>

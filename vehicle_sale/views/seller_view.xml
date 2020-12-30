@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Seller Form View -->
+        <record id="seller_form_view" model="ir.ui.view">
+            <field name="name">Seller Post</field>
+            <field name="model">seller</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <header>
+                            <button type="object" name="status_change_to_requested" string="Requested" />
+                            <button type="object" name="status_change_to_delivered" string="Delivered" />
+                            <button type="object" name="status_change_to_canceled" string="Cancel" />
+                        </header>
+                        <group>
+                            <field name="name" />
+                            <field name="contact_no" />
+                            <field name="category" />
+                            <field name="vehicle" />
+                            <!-- <field name="model" /> -->
+                            <field name="fuel" />
+                            <field name="model_year" />
+                            <field name="rc_no" />
+                            <field name="price" />
+                            <field name="kilometers" />
+                            <field name="image" widget="image" class="oe_left oe_avatar" />
+                            <field name="status" />             
+                        </group>
+                    </sheet>
+                </form>            
+            </field>
+        </record>
+
+        <!-- Seller Tree View -->
+        <record id="seller_tree_view" model="ir.ui.view">
+            <field name="name">Seller List</field>
+            <field name="model">seller</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="contact_no" />
+                    <field name="category" />
+                    <field name="vehicle" />
+                    <!-- <field name="model" /> -->
+                    <field name="fuel" />
+                    <field name="model_year" />
+                    <field name="rc_no" />
+                    <field name="price" />
+                    <field name="kilometers" />
+                    <field name="image" />
+                    <field name="status" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Seller Search View -->
+        <record id="seller_search_view" model="ir.ui.view">
+            <field name="name">Seller Search</field>
+            <field name="model">seller</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <field name="contact_no" />
+                    <field name="category" />
+                    <field name="vehicle" />
+                    <!-- <field name="model" /> -->
+                    <field name="fuel" />
+                    <field name="model_year" />
+                    <field name="rc_no" />
+                    <field name="price" />
+                    <field name="kilometers" />
+                    <field name="image" />
+                </search>
+            </field>
+        </record>
+
+        <!-- Seller Action View -->
+        <record id="seller_action" model="ir.actions.act_window">
+            <field name="name">Seller</field>
+            <field name="res_model">seller</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- Seller Menulist -->
+        <menuitem id="seller_menuitem" name="Seller" parent="vehicle_main_menu" action="seller_action" sequence="5" />
+    </data> 
+</odoo>
