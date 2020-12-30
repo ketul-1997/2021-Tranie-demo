@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <template id="report_property_data">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <center>
+                                <h1>
+                                    <strong>Tenancy Detail Report</strong>
+                                </h1>
+                            </center>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>
+                                        <thead>
+                                            <th>Tenant Number</th>
+                                            <th>Property</th>
+                                            <th>Tenant</th>
+                                            <th>Amount</th>
+                                            <th>Start Date</th>
+                                            <th>Expire Date</th>
+                                            <th>Total Rent</th>
+                                        </thead>
+                                    </td>
+                                </tr>
+                                <t t-foreach="get_data" t-as="o">
+                                    <tr>
+                                        <td>
+                                        <span t-esc="o['number']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="o['property']"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="o['tenant']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="o['currency']"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="o['start_date']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="o['end_date']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="o['rent']"/>
+                                        </td>
+
+                                    </tr>
+                                </t>
+                            </table>
+                            <h5>
+                                <span t-esc="get_report"/>
+                            </h5>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</flectra>
+
+
+        <!--                                    <td>-->
+        <!--                                        <t t-foreach="o.tenant_id" t-as="l">-->
+        <!--&lt;!&ndash;                                            <span t-field="l.name"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        </t>&ndash;&gt;-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <t t-foreach="o.company_id" t-as="s">-->
+        <!--                                            <span t-field="s.name"/>-->
+        <!--                                        </t>-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <span t-field='o.currency'/>-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <span t-field='o.start_date'/>-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <span t-field='o.expiration_date'/>-->
+        <!--                                    </td>-->
+
+        <!--                                    <td>-->
+        <!--                                        <span t-field='o.total_rent'/>-->
+        <!--                                    </td>-->
+        <!--                                </tr>-->
+        <!--                            </table>-->
+        <!--                        </div>-->
+        <!--                    </t>-->
+        <!--                </t>-->
+        <!--            </t>-->
+        <!--        </template>-->
+        <!--    </data>-->
+        <!--</flectra>-->
+
+
+        <!--<td>-->
+        <!--<t t-foreach="o.tenant_id" t-as="l">-->
+        <!--    <span t-field="l.name"/>-->
+        <!--</t>-->
+        <!--</td>-->
+        <!--<td>-->
+        <!--<t t-foreach="o.company_id" t-as="s">-->
+        <!--    <span t-field="s.name"/>-->
+        <!--</t>-->
+        <!--</td>-->
+        <!--<td>-->
+        <!--<span t-field='o.currency'/>-->
+        <!--</td>-->
+        <!--<td>-->
+        <!--<span t-field='o.start_date'/>-->
+        <!--</td>-->
+        <!--<td>-->
+        <!--<span t-field='o.expiration_date'/>-->
+        <!--</td>-->
+
+        <!--<td>-->
+        <!--<span t-field='o.total_rent'/>-->
+        <!--</td>-->
+
+

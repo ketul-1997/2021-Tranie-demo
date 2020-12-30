@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data noupdate="1">
+
+        <record id="property_type_demo1" model="property.type.details">
+            <field name="name">Building</field>
+
+        </record>
+
+        <record id="property_type_demo2" model="property.type.details">
+            <field name="name">Flate</field>
+
+        </record>
+
+        <record id="property_type_demo3" model="property.type.details">
+            <field name="name">Bunglow</field>
+
+        </record>
+
+        <record id="property_type_demo4" model="property.type.details">
+            <field name="name">Raw House</field>
+
+        </record>
+
+
+    </data>
+</flectra>

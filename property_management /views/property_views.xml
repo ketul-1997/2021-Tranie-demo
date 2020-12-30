@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="list_property_details_view" model="ir.ui.view">
+            <field name="name">property.details.tree</field>
+            <field name="model">property.details</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Property Details">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="date"/>
+                    <field name="furnishing"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kanban_pro_deal_view" model="ir.ui.view">
+            <field name="name">property.details.kanban</field>
+            <field name="model">property.details</field>
+            <field name="arch" type="xml">
+                <kanban create="false" default_group_by="state" class="o_kanban_small_column o_opportunity_kanban"
+                        on_create="action_pro_del_management_form_view">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="state" widget="priority"/>
+                                    <h4>
+                                        <a type="open">
+                                            <t t-if="record.name.raw_value">
+                                                <field name="name"/>
+                                            </t>
+                                            <t t-if="record.address.raw_value">
+                                                <field name="address"/>
+                                            </t>
+                                        </a>
+                                    </h4>
+                                    <ul>
+                                        <li t-if="record.furnishing.raw_value">
+                                            <field name="furnishing"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_property_form" model="ir.ui.view">
+            <field name="name">property.details.form</field>
+            <field name="model">property.details</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <form string="Property Information">
+                    <header>
+                        <button name="button_available" string="Available" class="oe_highlight" type="object"
+                                statusbar_visible="available"/>
+
+                        <button name="button_sold" string="Sold" class="oe_highlight"
+                                type="object" statusbar_visible="sold"/>
+
+                        <button name="button_booked" string="Booked" class="oe_highlight" type="object"
+                                statusbar_visible="booked"/>
+
+                        <button name="button_sale" string="Sale" class="oe_highlight" type="object"
+                                statusbar_visible="sale"/>
+
+                        <button name="button_lease" string="On lease" class="oe_highlight" type="object"
+                                statusbar_visible="on_lease"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="state"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active1" type="object" string="Get Location"
+                                    class="oe_stat_button1" icon="fa-paper-plane text-success">
+                            </button>
+                            <button name="toggle_active2" type="object" string="Open"
+                                    class="oe_stat_button2" icon="fa fa-folder-open">
+                            </button>
+                            <button name="toggle_active3" type="object" string="Entries"
+                                    class="oe_stat_button3" icon="fa-pencil">
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <field name="already_product"/>
+                            <label string="Already Product"/>
+                            <field name="product_id" placeholder="Product" options="{'no_create_edit': True}"
+                                   attrs="{'required':[('already_product','=',True)],'invisible': [('already_product','=', False)]}"/>
+                        </div>
+                        <style>
+                            .img {
+                            height: 128px;
+                            width: 128px;
+                            }
+                        </style>
+                        <field name="image_medium" widget="image" class="oe_left oe_avatar img"/>
+                        <div class="col-md-5">
+                            <h3>
+                                <td style="padding-right:10px;">
+                                    <field name="name" required="1" placeholder="Property Name"/>
+                                </td>
+                            </h3>
+                        </div>
+                        <div>
+                            <field name="number"/>
+                        </div>
+                        <group string="Property Details" col="4">
+                            <field name="address"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                            <field name="date"/>
+                            <field name="no_tower"/>
+                            <field name="gfa_sqit"/>
+                            <field name="gfa_meter"/>
+                            <field name="active"/>
+                            <field name="property_manager_id"/>
+                            <field name="furnishing"/>
+                            <field name="bedrooms"/>
+                            <field name="facing"/>
+                            <field name="income_account_id"/>
+                            <field name="external_account_id"/>
+                            <field name="property_category"/>
+                            <field name="company_id"/>
+                            <field name="company_url"/>
+                            <field name="currency_id"/>
+                        </group>
+                        <group col="2">
+                            <field name="tenancy_line">
+                                <tree editable="bottom" nolabel="1">
+                                    <field name="date"/>
+                                    <field name="property_id"/>
+                                    <field name="currency"/>
+                                    <field name="tenant_id"/>
+                                    <field name="company_id"/>
+                                    <field name="tenancy_rent"/>
+                                    <field name="start_date"/>
+                                    <field name="expiration_date"/>
+                                    <field name="rent_type"/>
+                                    <field name="account_deposit"/>
+                                    <field name="total_rent"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_pro_details_management">
+            <field name="name">Property Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.details</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+
+        </record>
+        <record model="ir.actions.act_window.view" id="action_pro_del_management_kanban_view">
+            <field name="act_window_id" ref="action_pro_details_management"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="kanban_pro_deal_view"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_pro_del_management_form_view">
+            <field name="act_window_id" ref="action_pro_details_management"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_property_form"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="action_pro_del_management_tree_view">
+            <field name="act_window_id" ref="action_pro_details_management"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="list_property_details_view"/>
+        </record>
+
+
+        <menuitem id="property_management"
+                  name="Property"
+                  parent="property_management_root"
+                  action="action_pro_details_management"/>
+
+
+    </data>
+</flectra>

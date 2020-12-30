@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a924395-9005-4ec0-bacc-7e71fed0c481" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZNY0vrG3wVhOARIAoBQGTJYIZj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="ReadonlyStatusHandler">
+    <option name="SHOW_DIALOG" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/report" />
+      <recent name="$PROJECT_DIR$/wizard" />
+      <recent name="$PROJECT_DIR$/models" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a924395-9005-4ec0-bacc-7e71fed0c481" name="Default Changelist" comment="" />
+      <created>1584680798373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584680798373</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="315" y="44" key="#Python" timestamp="1586176499422">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="315" y="44" key="#Python/65.24.1301.744@65.24.1301.744" timestamp="1586176499422" />
+    <state x="180" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585149625064">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="180" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1301.744@65.24.1301.744" timestamp="1585149625064" />
+    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1585141974103">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1585141974103" />
+    <state x="209" y="24" key="SettingsEditor" timestamp="1586176458430">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="209" y="24" key="SettingsEditor/65.24.1301.744@65.24.1301.744" timestamp="1586176458430" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1586147454210">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1586147454210" />
+    <state x="287" y="24" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585718723852">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="287" y="24" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/65.24.1301.744@65.24.1301.744" timestamp="1585718723852" />
+    <state x="305" y="134" width="707" height="576" key="find.popup" timestamp="1586178786576">
+      <screen x="67" y="24" width="1299" height="744" />
+    </state>
+    <state x="303" y="134" width="707" height="522" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1586153106106" />
+    <state x="305" y="134" width="707" height="576" key="find.popup/67.24.1299.744@67.24.1299.744" timestamp="1586178786576" />
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1585658462955">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup/65.24.1301.744@65.24.1301.744" timestamp="1585658462955" />
+    <state x="445" y="297" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1584798744254">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="445" y="297" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/65.24.1301.744@65.24.1301.744" timestamp="1584798744254" />
+  </component>
+</project>

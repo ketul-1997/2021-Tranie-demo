@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="tenant_inherit_from_view" model="ir.ui.view">
+            <field name="name">Property Form view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <field name="category_id" position="after">
+                    <field name="occupation"/>
+                </field>
+
+                <field name="lang" position="after">
+                    <field name="company_id"/>
+                </field>
+
+                <field name="company_id" position="after">
+                    <field name="identity_proof"/>
+                </field>
+
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Tenancy Details">
+                        <field name="tenancy_line">>
+                            <tree editable="bottom">
+                        <field name="date"/>
+                        <field name="tenancy_name"/>
+                        <field name="property_id"/>
+                        <field name="currency"/>
+                        <field name="tenant_id"/>
+                        <field name="company_id"/>
+                        <field name="tenancy_rent"/>
+                        <field name="start_date"/>
+                        <field name="expiration_date"/>
+                        <field name="rent_type"/>
+                        <field name="account_deposit"/>
+                        <field name="total_rent"/>
+                        <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Sales And Purchase">
+                        <group>
+                            <field name="sales"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Accounting">
+                        <group>
+                            <field name="accounting"/>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="action_tenant_management" model="ir.actions.act_window">
+            <field name="name">Tenant view</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+        <menuitem id="property_management_root" name="Property Management"/>
+
+
+        <menuitem id="tenant_management" name="Tenant"
+                  parent="property_management_root"
+                  action="action_tenant_management"/>
+    </data>
+
+</flectra>
+
+
+
+
