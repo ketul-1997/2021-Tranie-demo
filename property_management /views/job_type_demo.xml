@@ -12,6 +12,7 @@
         <record id="job_type_demo3" model="op.job.type">
             <field name="name">Free Lancing</field>
             <field name="code">a3</field>
+            dewdfytyjtftewrferthjhvjrfgrhjgjthykjyfhdty
         </record>
     </data>
 </odoo>
